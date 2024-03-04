@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-
+//Every widget in flutter is a dart class that has a build method
 void main(){
 
 runApp(MyApp()); //runapp method calls the build method of my app widget

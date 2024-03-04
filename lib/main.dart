@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 void main(){
 
-runApp(MyApp());
+runApp(MyApp()); //runapp method calls the build method of my app widget
 
 }
 

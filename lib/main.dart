@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/question.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,6 +35,7 @@ class _MyAppState extends State<MyApp> { // _ converts the class from a public t
         body: Center(
           child: Column(
             children: [
+              Question(questions[_questionIndex]),
               ElevatedButton(
                 onPressed: () => _answerQuestion,
                 child: Text(questions[_questionIndex]),

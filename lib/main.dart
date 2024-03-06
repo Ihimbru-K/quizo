@@ -6,6 +6,7 @@ void main() =>
     runApp(MyApp()); // arrow functions for functions that don't do much
 
 class MyApp extends StatelessWidget {
+  void answerQuestion() => print('Answer question');
   // build method is needed because flutter must always call it when it wants to draw something to the screen
   //It is an aspect of all material widgets
   @override // specifying that you added a method in an already inbuilt class
@@ -17,7 +18,15 @@ class MyApp extends StatelessWidget {
           title: Text("My Quiz app"),
         ),
         body: Center(
-          child: Text("Here is the body"),
+          child: Column(children: [
+            ElevatedButton(onPressed: null, child: Text('Answer one')),
+            ElevatedButton(onPressed: null, child: Text('Answer two')),
+
+            //when passing a function to onPress, we are passing the name of the function and not the function itself
+            ElevatedButton(onPressed: answerQuestion, child: Text('Answer three')),
+
+
+          ],)
         ),
       ),
     );

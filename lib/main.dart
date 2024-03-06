@@ -10,13 +10,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> { // _ converts the class from a public to a private class
-  var questionIndex = 0;
+  var _questionIndex = 0;
 
   void _answerQuestion() {
     setState(() {  //updates only this widget only when the build method is called
-      questionIndex += 1;
+      _questionIndex += 1;
     });
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   @override
@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> { // _ converts the class from a public t
             children: [
               ElevatedButton(
                 onPressed: () => _answerQuestion,
-                child: Text(questions[questionIndex]),
+                child: Text(questions[_questionIndex]),
               ),
               ElevatedButton(
                 onPressed: () => print("Answer this question"),

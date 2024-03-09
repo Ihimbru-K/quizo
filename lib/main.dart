@@ -37,16 +37,16 @@ class _MyAppState extends State<MyApp> { // _ converts the class from a public t
             children: [
               Question(questions[_questionIndex]),
               ElevatedButton(
-                onPressed: () => _answerQuestion,
+                onPressed: () => _answerQuestion(),
                 child: Text(questions[_questionIndex]),
               ),
               ElevatedButton(
-                onPressed: () => print("Answer this question"),
+                onPressed: () => print("Answer 2"),
                 child: Text(questions[1]),
               ),
               ElevatedButton(
                 onPressed: () => _answerQuestion,
-                child: Text('Answer three'),
+                child: Text('Answer 3'),
               ),
             ],
           ),

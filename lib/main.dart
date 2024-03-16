@@ -11,11 +11,13 @@ class MyApp extends StatefulWidget {
   }
 }
 
-class _MyAppState extends State<MyApp> { // _ converts the class from a public to a private class
+class _MyAppState extends State<MyApp> {
+  // _ converts the class from a public to a private class
   var _questionIndex = 0;
 
   void _answerQuestion() {
-    setState(() {  //updates only this widget only when the build method is called
+    setState(() {
+      //updates only this widget only when the build method is called
       _questionIndex += 1;
     });
     print(_questionIndex);
@@ -23,38 +25,24 @@ class _MyAppState extends State<MyApp> { // _ converts the class from a public t
 
   @override
   Widget build(BuildContext context) {
-
     //Creating a map of questions and answers.
     //A map takes key-value pairs
 
-    var questions = [
+    //final is used when a value doesn't change during compilation or runtime
+    final questions = [
       {
-        'question' : "What's your favourite color?",
-        'answers' : ['black', 'blue', 'brown', 'red']
+        'question': "What's your favourite color?",
+        'answers': ['black', 'blue', 'brown', 'red']
       },
       {
-        'question' : "What's your favourite shoe?",
-        'answers' : ['balenciaga', 'sneakers', 'jordans', 'pointinini']
+        'question': "What's your favourite shoe?",
+        'answers': ['balenciaga', 'sneakers', 'jordans', 'pointinini']
       },
       {
-        'question' : "What's your favourite programming language?",
-        'answers' : ['Java', 'Kotlin', 'Dart', 'Javascript']
+        'question': "What's your favourite programming language?",
+        'answers': ['Java', 'Kotlin', 'Dart', 'Javascript']
       }
-
     ];
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // var questions = [
     //   "What's your name",
@@ -69,17 +57,42 @@ class _MyAppState extends State<MyApp> { // _ converts the class from a public t
         body: Center(
           child: Column(
             children: [
-              Question(questions[_questionIndex]['question'] as String,
-
+              Question(
+                questions[_questionIndex]['question'] as String,
               ),
-              //answer question is a pointer to the answerQuestion() method because the method isn't a member of the
-              //Answer class
-              ...(questions[_questionIndex]['answers'] as List<String>).map((answer){
+ //We are mapping the elements in the list of answers belonging to the answer key in the questions list to the custom answer widget
+              ...(questions[_questionIndex]['answers'] as List<String>)
+                  .map((answer) {
                 return Answer(_answerQuestion, answer);
-              }).toList()
+              }),
 
-              
 
+
+
+
+
+
+
+
+
+//answer question is a pointer to the answerQuestion() method because the method isn't a member of the
+              //Answer class
+              //   Answer(_answerQuestion),  //ptr -> to _answerQuestion()
+              // Answer(_answerQuestion),
+              //   Answer(_answerQuestion)
+
+              // ElevatedButton(
+              //   onPressed: () => _answerQuestion(),
+              //   child: Text(questions[_questionIndex]),
+              // ),
+              // ElevatedButton(
+              //   onPressed: () => print("Answer 2"),
+              //   child: Text(questions[1]),
+              // ),
+              // ElevatedButton(
+              //   onPressed: () => _answerQuestion,
+              //   child: Text('Answer 3'),
+              // ),
             ],
           ),
         ),

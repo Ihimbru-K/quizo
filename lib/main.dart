@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> { // _ converts the class from a public t
     //Creating a map of questions and answers.
     //A map takes key-value pairs
 
-    var Questions = [
+    var questions = [
       {
         'question' : "What's your favourite color?",
         'answers' : ['black', 'blue', 'brown', 'red']
@@ -56,11 +56,11 @@ class _MyAppState extends State<MyApp> { // _ converts the class from a public t
 
 
 
-    var questions = [
-      "What's your name",
-      "What's your favorite colour?",
-      "Which school are you from"
-    ];
+    // var questions = [
+    //   "What's your name",
+    //   "What's your favorite colour?",
+    //   "Which school are you from"
+    // ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -69,35 +69,17 @@ class _MyAppState extends State<MyApp> { // _ converts the class from a public t
         body: Center(
           child: Column(
             children: [
-              Question(questions[_questionIndex]),
+              Question(questions[_questionIndex]['question'] as String,
+
+              ),
               //answer question is a pointer to the answerQuestion() method because the method isn't a member of the
               //Answer class
-              Answer(_answerQuestion),  //ptr -> to _answerQuestion()
-            Answer(_answerQuestion),
-              Answer(_answerQuestion)
+              ...(questions[_questionIndex]['answers'] as List<String>).map((answer){
+                return Answer(_answerQuestion, answer);
+              }).toList()
 
+              
 
-
-
-
-
-
-
-
-
-
-              // ElevatedButton(
-              //   onPressed: () => _answerQuestion(),
-              //   child: Text(questions[_questionIndex]),
-              // ),
-              // ElevatedButton(
-              //   onPressed: () => print("Answer 2"),
-              //   child: Text(questions[1]),
-              // ),
-              // ElevatedButton(
-              //   onPressed: () => _answerQuestion,
-              //   child: Text('Answer 3'),
-              // ),
             ],
           ),
         ),

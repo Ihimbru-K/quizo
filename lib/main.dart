@@ -23,6 +23,39 @@ class _MyAppState extends State<MyApp> { // _ converts the class from a public t
 
   @override
   Widget build(BuildContext context) {
+
+    //Creating a map of questions and answers.
+    //A map takes key-value pairs
+
+    var Questions = [
+      {
+        'question' : "What's your favourite color?",
+        'answers' : ['black', 'blue', 'brown', 'red']
+      },
+      {
+        'question' : "What's your favourite shoe?",
+        'answers' : ['balenciaga', 'sneakers', 'jordans', 'pointinini']
+      },
+      {
+        'question' : "What's your favourite programming language?",
+        'answers' : ['Java', 'Kotlin', 'Dart', 'Javascript']
+      }
+
+    ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     var questions = [
       "What's your name",
       "What's your favorite colour?",

@@ -28,7 +28,13 @@ class _MyAppState extends State<MyApp> {
     //Creating a map of questions and answers.
     //A map takes key-value pairs
 
-    //final is used when a value doesn't change during compilation or runtime
+    //final is used when a value doesn't change during runtime
+    //It is a runtime constant value
+    //that is its value isn't reassigned once it is created
+    //const is used when a value doesn't have to change at compile time
+
+    //the value of final is locked at compile time
+    //the value of const is locked once it is declared
     final questions = [
       {
         'question': "What's your favourite color?",

@@ -12,8 +12,32 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+
   // _ converts the class from a public to a private class
   var _questionIndex = 0;
+
+
+  final questions = [
+    {
+      'question': "What's your favourite color?",
+      'answers': ['black', 'blue', 'brown', 'red']
+    },
+    {
+      'question': "What's your favourite shoe?",
+      'answers': ['balenciaga', 'sneakers', 'jordans', 'pointinini']
+    },
+    {
+      'question': "What's your favourite programming language?",
+      'answers': ['Java', 'Kotlin', 'Dart', 'Javascript']
+    }
+  ];
+
+
+
+
+
+
 
   void _answerQuestion() {
     setState(() {
@@ -21,6 +45,9 @@ class _MyAppState extends State<MyApp> {
       _questionIndex += 1;
     });
     print(_questionIndex);
+    if(_questionIndex < questions.length){
+      print("We have exceeded the available questions");
+    }
   }
 
   @override
@@ -35,20 +62,7 @@ class _MyAppState extends State<MyApp> {
 
     //the value of final is locked at compile time
     //the value of const is locked once it is declared
-    final questions = [
-      {
-        'question': "What's your favourite color?",
-        'answers': ['black', 'blue', 'brown', 'red']
-      },
-      {
-        'question': "What's your favourite shoe?",
-        'answers': ['balenciaga', 'sneakers', 'jordans', 'pointinini']
-      },
-      {
-        'question': "What's your favourite programming language?",
-        'answers': ['Java', 'Kotlin', 'Dart', 'Javascript']
-      }
-    ];
+
 
     // var questions = [
     //   "What's your name",

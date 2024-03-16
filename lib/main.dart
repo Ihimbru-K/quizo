@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/answer.dart';
 import 'package:flutter_complete_guide/question.dart';
 
 void main() => runApp(MyApp());
@@ -36,18 +37,34 @@ class _MyAppState extends State<MyApp> { // _ converts the class from a public t
           child: Column(
             children: [
               Question(questions[_questionIndex]),
-              ElevatedButton(
-                onPressed: () => _answerQuestion(),
-                child: Text(questions[_questionIndex]),
-              ),
-              ElevatedButton(
-                onPressed: () => print("Answer 2"),
-                child: Text(questions[1]),
-              ),
-              ElevatedButton(
-                onPressed: () => _answerQuestion,
-                child: Text('Answer 3'),
-              ),
+              //answer question is a pointer to the answerQuestion() method because the method isn't a member of the
+              //Answer class
+              Answer(_answerQuestion),  //ptr -> to _answerQuestion()
+            Answer(_answerQuestion),
+              Answer(_answerQuestion)
+
+
+
+
+
+
+
+
+
+
+
+              // ElevatedButton(
+              //   onPressed: () => _answerQuestion(),
+              //   child: Text(questions[_questionIndex]),
+              // ),
+              // ElevatedButton(
+              //   onPressed: () => print("Answer 2"),
+              //   child: Text(questions[1]),
+              // ),
+              // ElevatedButton(
+              //   onPressed: () => _answerQuestion,
+              //   child: Text('Answer 3'),
+              // ),
             ],
           ),
         ),

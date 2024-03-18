@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> { // _ converts the class from a public t
           title: Text("My Quiz app"),
         ),
         body: Center(
-          child: Column(
+          child: _questionIndex < questions.length? Column(
             children: [
               Question(questions[_questionIndex]['question'] as String,
 
@@ -81,7 +81,9 @@ class _MyAppState extends State<MyApp> { // _ converts the class from a public t
               
 
             ],
-          ),
+          ): Center(
+            child: Text('you dit it !'),
+          )
         ),
       ),
     );

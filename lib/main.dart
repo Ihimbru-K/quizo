@@ -12,13 +12,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-
   // _ converts the class from a public to a private class
   var _questionIndex = 0;
 
-
-  final questions = [
+  final _questions = [
     {
       'question': "What's your favourite color?",
       'answers': ['black', 'blue', 'brown', 'red']
@@ -33,19 +30,13 @@ class _MyAppState extends State<MyApp> {
     }
   ];
 
-
-
-
-
-
-
   void _answerQuestion() {
     setState(() {
       //updates only this widget only when the build method is called
       _questionIndex += 1;
     });
     print(_questionIndex);
-    if(_questionIndex < questions.length){
+    if (_questionIndex < _questions.length) {
       print("We have exceeded the available questions");
     }
   }
@@ -63,7 +54,6 @@ class _MyAppState extends State<MyApp> {
     //the value of final is locked at compile time
     //the value of const is locked once it is declared
 
-
     // var questions = [
     //   "What's your name",
     //   "What's your favorite colour?",
@@ -76,55 +66,17 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
 
-          /**
+            /**
            * Ternary expressions are of the form :
            * condition ? outcome : second_outcome
            * that is if condition then the first outcome else the second outcome
            */
 
-        child: _questionIndex < questions.length? Column(
-            children: [
-              Question(
-                questions[_questionIndex]['question'] as String,
-              ),
- //We are mapping the elements in the list of answers belonging to the answer key in the questions list to the custom answer widget
-              ...(questions[_questionIndex]['answers'] as List<String>)
-                  .map((answer) {
-                return Answer(_answerQuestion, answer);
-              }),
-
-
-
-
-
-
-
-
-
-
-//answer question is a pointer to the answerQuestion() method because the method isn't a member of the
-              //Answer class
-              //   Answer(_answerQuestion),  //ptr -> to _answerQuestion()
-              // Answer(_answerQuestion),
-              //   Answer(_answerQuestion)
-
-              // ElevatedButton(
-              //   onPressed: () => _answerQuestion(),
-              //   child: Text(questions[_questionIndex]),
-              // ),
-              // ElevatedButton(
-              //   onPressed: () => print("Answer 2"),
-              //   child: Text(questions[1]),
-              // ),
-              // ElevatedButton(
-              //   onPressed: () => _answerQuestion,
-              //   child: Text('Answer 3'),
-              // ),
-            ],
-          ): Center(
-            child: Text('you dit it !'),
-          )
-        ),
+            child: _questionIndex < _questions.length
+                ? Question(_questionText)
+                : Center(
+                    child: Text('you dit it !'),
+                  )),
       ),
     );
   }

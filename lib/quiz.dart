@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/question.dart';
 
+import 'answer.dart';
 
 class Quiz extends StatelessWidget {
-  const Quiz({Key? key}) : super(key: key);
+  final List<Map<String, Object>> questions;
+  final int questionIndex;
+  final Function answerQuestion;
+
+  Quiz(@required this.questions, @required this.answerQuestion,
+      @required this.questionIndex);
+
+//  const Quiz({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Question(
-          questions[_questionIndex]['question'] as String,
+          questions[questionIndex]['question'] as String,
         ),
         //We are mapping the elements in the list of answers belonging to the answer key in the questions list to the custom answer widget
-        ...(questions[_questionIndex]['answers'] as List<String>)
-            .map((answer) {
-          return Answer(_answerQuestion, answer);
+        ...(questions[questionIndex]['answers'] as List<String>).map((answer) {
+          return Answer(answerQuestion, answer);
         }),
 
 //answer question is a pointer to the answerQuestion() method because the method isn't a member of the

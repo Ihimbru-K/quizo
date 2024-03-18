@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/answer.dart';
-import 'package:flutter_complete_guide/question.dart';
+import 'package:flutter_complete_guide/quiz.dart';
+import 'package:flutter_complete_guide/result.dart';
 
 void main() => runApp(MyApp());
 
@@ -65,18 +65,16 @@ class _MyAppState extends State<MyApp> {
           title: Text("My Quiz app"),
         ),
         body: Center(
-
-            /**
+          /**
            * Ternary expressions are of the form :
            * condition ? outcome : second_outcome
            * that is if condition then the first outcome else the second outcome
            */
 
-            child: _questionIndex < _questions.length
-                ? Question(_questionText)
-                : Center(
-                    child: Text('you dit it !'),
-                  )),
+          child: _questionIndex < _questions.length
+              ? Quiz(_questions, _answerQuestion, _questionIndex)
+              : Result(),
+        ),
       ),
     );
   }

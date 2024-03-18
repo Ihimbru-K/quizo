@@ -13,6 +13,18 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // _ converts the class from a public to a private class
+  /**
+   * Inside _MyAppState, we declare methods whose
+   * setStates trigger the build method to render some widgets or logic
+   * */
+
+  void _ResetQuiz(){
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;it
+    });
+
+  }
 
 
   final _questions = [

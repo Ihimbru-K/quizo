@@ -17,11 +17,10 @@ class _MyAppState extends State<MyApp> {
    * Inside _MyAppState, we declare methods whose
    * setStates trigger the build method to render some widgets or logic
    * */
-
-  void _ResetQuiz(){
+  void _resetQuiz(){
     setState(() {
       _questionIndex = 0;
-      _totalScore = 0;it
+      _totalScore = 0;
     });
 
   }
@@ -104,7 +103,11 @@ class _MyAppState extends State<MyApp> {
 
           child: _questionIndex < _questions.length
               ? Quiz(_questions, _answerQuestion, _questionIndex)
-              : Result(_totalScore,),
+
+          /** in order to use resetQuiz method in a widget, we pass a _pointer to the function and not the function itself
+           *
+           */
+              : Result(_totalScore, _resetQuiz),
         ),
       ),
     );

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
   final int resultScore;
+  final VoidCallback resetHandler;
 
-  Result(this.resultScore);
+  Result(this.resultScore, this.resetHandler);
 
   /**
    * In dart a getter is a special type of method that doesn't accept parameters
@@ -36,7 +37,13 @@ class Result extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          TextButton(onPressed: , child: Text("Restart quiz"))
+          TextButton(
+            onPressed: resetHandler,
+            child: Text("Restart quiz"),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+            ),
+          ),
         ],
       ),
     );

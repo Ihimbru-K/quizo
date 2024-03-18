@@ -75,7 +75,14 @@ class _MyAppState extends State<MyApp> {
           title: Text("My Quiz app"),
         ),
         body: Center(
-          child: _questionIndex < questions.length? Column(
+
+          /**
+           * Ternary expressions are of the form :
+           * condition ? outcome : second_outcome
+           * that is if condition then the first outcome else the second outcome
+           */
+
+        child: _questionIndex < questions.length? Column(
             children: [
               Question(
                 questions[_questionIndex]['question'] as String,

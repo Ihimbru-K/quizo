@@ -20,9 +20,8 @@ class Quiz extends StatelessWidget {
         Question(
           questions[questionIndex]['question'] as String,
         ),
-        //We are mapping the elements in the list of answers belonging to the answer key in the questions list to the custom answer widget
-        ...(questions[questionIndex]['answers'] as List<String>).map((answer) {
-          return Answer(answerQuestion, answer);
+        ...(questions[questionIndex]['answers'] as List<Map<String, Object>>).map((answer) {
+          return Answer(answerQuestion, answer['text'] as String);
         }),
 
 //answer question is a pointer to the answerQuestion() method because the method isn't a member of the

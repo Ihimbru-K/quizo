@@ -92,6 +92,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text("My Quiz app"),
         ),
         body: Center(

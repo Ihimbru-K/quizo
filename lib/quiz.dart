@@ -21,7 +21,12 @@ class Quiz extends StatelessWidget {
           questions[questionIndex]['question'] as String,
         ),
         ...(questions[questionIndex]['answers'] as List<Map<String, Object>>).map((answer) {
-          return Answer(answerQuestion, answer['text'] as String);
+
+          /**
+           * anonymous function is used here because it returns a type void and
+           * Only returns a reference of the answerQuestion method to the SelectHandler(onPressed method of Answer()) which is of return type void
+           * */
+          return Answer(() => answerQuestion(answer['score']), answer['text'] as String);
         }),
 
 //answer question is a pointer to the answerQuestion() method because the method isn't a member of the

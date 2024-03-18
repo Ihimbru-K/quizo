@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // _ converts the class from a public to a private class
-  var _questionIndex = 0;
+
 
   final _questions = [
     {
@@ -45,10 +45,14 @@ class _MyAppState extends State<MyApp> {
     }
   ];
 
-  void _answerQuestion() {
+
+  var _questionIndex = 0;
+  var _totalScore = 0;
+  void _answerQuestion( int score) {
     setState(() {
       //updates only this widget only when the build method is called
       _questionIndex += 1;
+      _totalScore += score;
     });
     print(_questionIndex);
     if (_questionIndex < _questions.length) {
@@ -88,7 +92,7 @@ class _MyAppState extends State<MyApp> {
 
           child: _questionIndex < _questions.length
               ? Quiz(_questions, _answerQuestion, _questionIndex)
-              : Result(),
+              : Result(_totalScore,),
         ),
       ),
     );

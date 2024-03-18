@@ -34,7 +34,7 @@ class Result extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
 
-      child: Text("You did it !", style: TextStyle(fontSize: 36, fontWeight:FontWeight.bold),),
+      child: Text(resultPhrase, style: TextStyle(fontSize: 36, fontWeight:FontWeight.bold, ), textAlign: TextAlign.center,),
     );
   }
 }

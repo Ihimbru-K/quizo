@@ -39,7 +39,7 @@ class Result extends StatelessWidget {
           ),
           TextButton(
             onPressed: resetHandler,
-            child: Text("Restart quiz"),
+            child: Text("Restart quiz", style: TextStyle(color: Colors.white),),
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
             ),
